@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  }
+
+  body {
+    background: #000;
+    overflow: hidden;
+    touch-action: manipulation;
+    font-family:
+      "Malgun Gothic",
+      "Apple SD Gothic Neo",
+      "Noto Sans KR",
+      sans-serif;
+  }
+
+  button {
+    @apply focus:outline-none;
+  }
+}
+
+@layer components {
+  .app {
+    @apply fixed inset-x-0 inset-y-0 flex items-center justify-center;
+  }
+
+  .app__version {
+    @apply absolute select-none pointer-events-none text-sm text-gray-600 right-0 bottom-0 px-1.5 py-1;
+  }
+
+  .auth-gate {
+    @apply fixed inset-0 flex items-center justify-center bg-black;
+  }
+
+  .auth-gate__panel {
+    @apply w-full max-w-sm mx-4 p-6 rounded-lg border border-rtk-gold/40 bg-gray-900 text-dos-white;
+  }
+
+  .auth-gate__title {
+    @apply text-2xl font-bold text-rtk-gold mb-2 text-center;
+  }
+
+  .auth-gate__desc {
+    @apply text-sm text-gray-300 mb-4 text-center;
+  }
+
+  .auth-gate__form {
+    @apply flex flex-col gap-2;
+  }
+
+  .auth-gate__input {
+    @apply w-full px-3 py-2 rounded bg-black border border-gray-600 text-dos-white;
+  }
+
+  .auth-gate__button {
+    @apply w-full py-2 rounded bg-rtk-red text-white font-semibold hover:bg-red-800;
+  }
+
+  .auth-gate__error {
+    @apply mt-3 text-sm text-red-400 text-center;
+  }
+
+  .splash {
+    @apply flex flex-col items-center justify-center gap-y-6 px-4;
+  }
+
+  .splash__hero {
+    @apply text-center;
+  }
+
+  .splash__title {
+    @apply text-4xl font-bold text-rtk-gold tracking-wide;
+  }
+
+  .splash__subtitle {
+    @apply text-lg text-gray-300 mt-1;
+  }
+
+  .splash__notes {
+    @apply text-sm text-gray-400 max-w-md list-disc list-inside space-y-1;
+  }
+
+  .menu {
+    @apply relative box-border p-6 select-none min-w-[280px];
+    box-shadow:
+      inset 0 0 0 2px #000,
+      inset 0 0 0 4px #8b0000,
+      inset 0 0 0 6px #c9a227,
+      inset 0 0 0 8px #000,
+      inset 0 0 0 10px #8b0000;
+    background: #f3e3d3;
+  }
+
+  .menu__item {
+    @apply cursor-pointer px-3 py-2 w-full whitespace-nowrap hover:bg-dos-black hover:text-dos-white text-left text-lg font-semibold;
+  }
+
+  .menu__item--primary {
+    @apply text-rtk-red;
+  }
+
+  .game {
+    @apply w-full h-full flex items-stretch flex-col landscape:flex-row select-none;
+  }
+
+  .game__header {
+    @apply relative flex grow-0 shrink-0 items-stretch flex-col landscape:flex-row;
+  }
+
+  .game__header__nav {
+    @apply flex items-center px-2 bg-gray-800 landscape:flex-col landscape:py-4 landscape:px-0;
+  }
+
+  .game__header__item {
+    @apply block cursor-pointer fill-current text-white p-2 hover:bg-white/30 active:bg-white/40;
+  }
+
+  .game__header__item svg {
+    @apply size-5;
+  }
+
+  .game__header__item--disabled {
+    @apply text-gray-500;
+  }
+
+  .game__header__fns {
+    @apply absolute top-full z-10 bg-gray-700 hidden landscape:py-4 landscape:left-full landscape:top-0;
+  }
+
+  .game__header__fns--toggled {
+    @apply block;
+  }
+
+  .game__header__fns__item {
+    @apply cursor-pointer w-full text-white py-2 px-4 text-sm hover:bg-white/20 active:bg-white/30 landscape:px-2 whitespace-nowrap;
+  }
+
+  .game__screen {
+    @apply relative flex-auto;
+  }
+
+  .game__screen canvas {
+    @apply w-[var(--screen-width)] h-[var(--screen-height)];
+    image-rendering: auto !important;
+  }
+
+  .game__screen .dosbox-container {
+    @apply w-full h-full;
+  }
+
+  .game__canvas,
+  .game__event-blocker {
+    @apply absolute inset-x-0 inset-y-0;
+  }
+
+  .toast {
+    @apply absolute bottom-6 left-1/2 -translate-x-1/2 px-2 py-1.5 bg-white/80 pointer-events-none rounded-sm transition-opacity duration-500 opacity-0 text-sm whitespace-pre text-center text-black;
+  }
+
+  .toast--active {
+    @apply opacity-100;
+  }
+
+  .virtual-keyboard {
+    @apply absolute right-0 bottom-0 select-none border-separate border-spacing-1;
+  }
+
+  .virtual-keyboard td {
+    @apply size-[44px] p-0 lg:size-[60px];
+  }
+
+  .virtual-keyboard__key {
+    @apply relative box-border w-full h-full rounded text-white bg-gray-800/50;
+  }
+
+  .virtual-keyboard__key:active::after {
+    @apply absolute inset-x-0 inset-y-0 bg-white/20 rounded content-[''];
+  }
+
+  .virtual-keyboard__key__label {
+    @apply absolute top-1.5 left-1.5 text-xs leading-none lg:text-sm;
+  }
+
+  .virtual-keyboard__key__description {
+    @apply hidden absolute bottom-1.5 left-1.5 text-xs text-white/80 lg:block;
+  }
+}

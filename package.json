@@ -1,0 +1,33 @@
+{
+  "name": "sangoku2-web",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "pack:game": "node scripts/pack-game.mjs",
+    "prebuild": "npm run pack:game",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "deploy": "rimraf dist && npm run build && push-dir --dir=dist --branch=gh-pages"
+  },
+  "dependencies": {
+    "file-dialog": "0.0.8",
+    "file-saver": "^2.0.5",
+    "js-dos": "^6.22.60",
+    "nano-loader": "^1.1.2",
+    "nipplejs": "^0.8.7"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.8.1",
+    "@types/file-saver": "^2.0.7",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.33",
+    "push-dir": "^0.4.1",
+    "rimraf": "^3.0.2",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12",
+    "vite-plugin-static-copy": "^1.0.1"
+  }
+}
