@@ -1,0 +1,6 @@
+/node_modules
+/dist
+/game/*.zip
+.env
+.env.local
+/sangoku2_ko/
